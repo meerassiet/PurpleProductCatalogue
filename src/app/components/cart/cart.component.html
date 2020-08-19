@@ -1,0 +1,20 @@
+<div *ngIf="!isCardEMpty; else notEmptyCart">
+    <h1> No Items in your cart</h1>
+</div>
+
+<ng-template #notEmptyCart>
+    <h1>Hi, You have {{cartItemCount}} Item(s) in your cart!</h1>
+</ng-template>
+
+<li *ngFor="let prd of cartProducts">
+    <mat-card style="width: 50%;height: 50%;">
+        <div class="row">
+            <img mat-card-image src="{{prd.url}}" (click)="displayDetails(prd)" style="width: 30%;height: 30%;">
+            <p>{{prd.description}}</p>
+            <p> ₹{{prd.Price}} </p>
+        </div>
+        <a style="cursor: pointer" (click)="deleteProduct(prd)">
+            <mat-icon>delete_outline</mat-icon>
+        </a>
+    </mat-card>
+</li>

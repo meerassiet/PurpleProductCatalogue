@@ -1,0 +1,78 @@
+.example-card {
+    float: left;
+    min-width: 15%;
+    max-width: 10%;
+    padding-left: 30px;
+}
+
+li {
+    display: inline;
+}
+
+mat-card {
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+
+.example-radio-group {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+}
+
+.example-radio-button {
+    margin: 5px;
+}
+
+.flexContainer {
+    display: flex;
+}
+
+.right {
+    margin-top: 1%;
+    display: inline;
+    flex-basis: auto;
+}
+
+.left {
+    display: inline;
+    flex-basis: auto;
+}
+
+.li:hover {
+    color: #607D8B;
+    background-color: #DDD;
+    left: .1em;
+}
+
+.li.selected {
+    background-color: #CFD8DC;
+    color: white;
+}
+
+.li.selected:hover {
+    background-color: #BBD8DC;
+    color: white;
+}
+
+.hide {
+    display: none;
+    position: fixed;
+}
+
+.myDIV:hover+.hide {
+    display: block;
+    color: red;
+}
+
+.fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+    background-color: transparent;
+}
+
+.mat-icon {
+    font-size: 40px;
+    width: 40px;
+}

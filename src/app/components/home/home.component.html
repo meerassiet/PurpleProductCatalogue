@@ -1,0 +1,48 @@
+<mat-toolbar style="height:100px">
+    <mat-form-field appearance="legacy" style="margin-top: 1%;left: 2%;position: absolute;">
+        <mat-label>What are you looking for?</mat-label>
+        <input matInput (keydown.enter)="onEnter()" autocomplete="off" [(ngModel)]="TextSearch" style="width: auto;">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <img src="assets/purplle-logo-1.svg" style="top: 20px;right: 50%;position: absolute;">
+    <div style="margin-top: 1%;right: 10px;position: absolute;">
+        <a style="cursor: pointer" (click)="goToHome()">
+            <mat-icon>home</mat-icon>
+        </a>&nbsp;&nbsp;
+        <a style="cursor: pointer" (click)="openCart()">
+            <mat-icon matBadge="{{cartItemCount}}" matBadgeColor="warn">add_shopping_cart</mat-icon>
+        </a>&nbsp;&nbsp;
+        <a mat-icon-button [matMenuTriggerFor]="menu" style="cursor: pointer">
+            <mat-icon>more_vert</mat-icon>
+        </a>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>
+                <span>Sign In</span>
+            </button>
+            <button mat-menu-item>
+                <span>Sign Up</span>
+            </button>
+        </mat-menu>
+    </div>
+</mat-toolbar>
+
+
+<div *ngIf="!foundProducts" style="color: brown;font-size: larger;">
+    Sorry! No matching item found!
+</div>
+<ul>
+    <li *ngFor="let prd of allProducts">
+        <mat-card class="example-card" style="text-align: center">
+            <img mat-card-image src="{{prd.url}}" width="auto" height="300" alt="{{prd.type}}" (click)="displayDetails(prd)">
+            <mat-card-content>
+                <p>{{prd.description}}</p>
+                <p> ₹{{prd.Price}} </p>
+            </mat-card-content>
+            <mat-card-actions>
+                <a style="cursor: pointer" (click)="addToCart(prd)">
+                    <mat-icon>playlist_add</mat-icon>
+                </a>
+            </mat-card-actions>
+        </mat-card>
+    </li>
+</ul>
